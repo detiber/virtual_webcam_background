@@ -67,6 +67,8 @@ config, config_mtime = load_config(0)
 
 # Set allow_growth for all GPUs
 gpu_devices = tf.config.experimental.list_physical_devices('GPU')
+tf.debugging.set_log_device_placement(True)
+print("GPU Devices: {}".format(gpu_devices))
 for device in gpu_devices:
     tf.config.experimental.set_memory_growth(device, True)
 
